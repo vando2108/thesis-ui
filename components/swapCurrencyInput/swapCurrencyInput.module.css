@@ -1,0 +1,117 @@
+    .input_line {
+        display: flex;
+        flex-flow: row nowrap;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+    
+    .currencySelector {
+        -webkit-box-align: center;
+        align-items: center;
+        background-color: rgb(41, 50, 73);
+        opacity: 1;
+        box-shadow: none;
+        color: rgb(255, 255, 255);
+        cursor: pointer;
+        height: unset;
+        border-radius: 16px;
+        outline: none;
+        user-select: none;
+        border: none;
+        font-size: 24px;
+        font-weight: 400;
+        width: initial;
+        padding: 4px 8px 4px 4px;
+        gap: 8px;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        margin-left: 12px;
+        visibility: visible;
+    }
+    
+    .currencySelector::before {
+        background-size: 100%;
+        border-radius: inherit;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        content: "";
+    }
+    
+    .currencySelectorContent {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        width: 100%;
+    }
+    
+    .currencySelectorContent__left {
+        width: fit-content;
+        display: flex;
+        padding: 0px;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: start;
+        justify-content: flex-start;
+        box-sizing: border-box;
+        margin: 0px;
+        min-width: 0px;
+    }
+    
+    .currencySelectorContent__icon {
+        margin-right: 2px;
+        position: relative;
+        display: flex;
+        width: 24px;
+        height: 24px;
+    }
+    
+    .currencySelectorTicker {
+        margin: 0px 0.25rem;
+        font-size: 20px;
+        font-weight: 600;
+    }
+    
+    .icon {
+        border-radius: 200px;
+    }
+    
+    .balance_line {
+        justify-content: space-between;
+        width: 100%;
+        display: flex;
+        padding: 0px;
+        align-items: center;
+        box-sizing: border-box;
+        margin: 0px;
+        min-width: 0px;
+    }
+    
+    .balance_line__content {
+        height: 17px;
+        width: fit-content;
+        display: flex;
+        padding: 0px;
+        align-items: center;
+        justify-content: flex-start;
+        box-sizing: border-box;
+        margin: 0px;
+        min-width: 0px;
+    }
+    
+    .balance {
+        display: inline;
+        box-sizing: border-box;
+        margin: 0px;
+        min-width: 0px;
+        font-weight: 400;
+        font-size: 14px;
+        color: rgb(152, 161, 192);
+        line-height: 1rem;
+    }

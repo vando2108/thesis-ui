@@ -1,0 +1,469 @@
+{
+    "_format": "hh-sol-artifact-1",
+    "contractName": "Capy",
+    "sourceName": "contracts/capy.sol",
+    "abi": [{
+            "inputs": [{
+                    "internalType": "uint256",
+                    "name": "challengePeriod_",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "commitmentBond_",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "version_",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "changeDelay_",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "address",
+                    "name": "addressHandler_",
+                    "type": "address"
+                },
+                {
+                    "internalType": "contract IERC20",
+                    "name": "tokenContract_",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "constructor"
+        },
+        {
+            "anonymous": false,
+            "inputs": [{
+                    "indexed": false,
+                    "internalType": "uint32",
+                    "name": "accountIndex",
+                    "type": "uint32"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "address",
+                    "name": "accountAddress",
+                    "type": "address"
+                }
+            ],
+            "name": "AccountCreated",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
+            "inputs": [{
+                    "indexed": false,
+                    "internalType": "uint32",
+                    "name": "blockNumber",
+                    "type": "uint32"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "bytes32",
+                    "name": "blockHash",
+                    "type": "bytes32"
+                }
+            ],
+            "name": "BlockSubmitted",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
+            "inputs": [{
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "hardTransactionIndex",
+                "type": "uint256"
+            }],
+            "name": "NewHardTransaction",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
+            "inputs": [{
+                    "indexed": true,
+                    "internalType": "address",
+                    "name": "previousOwner",
+                    "type": "address"
+                },
+                {
+                    "indexed": true,
+                    "internalType": "address",
+                    "name": "newOwner",
+                    "type": "address"
+                }
+            ],
+            "name": "OwnershipTransferred",
+            "type": "event"
+        },
+        {
+            "inputs": [{
+                "internalType": "uint32",
+                "name": "",
+                "type": "uint32"
+            }],
+            "name": "accounts",
+            "outputs": [{
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "accountsCount",
+            "outputs": [{
+                "internalType": "uint32",
+                "name": "",
+                "type": "uint32"
+            }],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [{
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }],
+            "name": "accountsIndex",
+            "outputs": [{
+                "internalType": "uint32",
+                "name": "",
+                "type": "uint32"
+            }],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "addressHandler",
+            "outputs": [{
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "challengePeriod",
+            "outputs": [{
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "changeDelay",
+            "outputs": [{
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "commitmentBond",
+            "outputs": [{
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [{
+                "components": [{
+                        "internalType": "uint16",
+                        "name": "version",
+                        "type": "uint16"
+                    },
+                    {
+                        "internalType": "uint32",
+                        "name": "blockNumber",
+                        "type": "uint32"
+                    },
+                    {
+                        "internalType": "uint32",
+                        "name": "stateSize",
+                        "type": "uint32"
+                    },
+                    {
+                        "internalType": "bytes32",
+                        "name": "stateRoot",
+                        "type": "bytes32"
+                    },
+                    {
+                        "internalType": "uint40",
+                        "name": "hardTransactionsCount",
+                        "type": "uint40"
+                    },
+                    {
+                        "internalType": "bytes32",
+                        "name": "transactionsRoot",
+                        "type": "bytes32"
+                    },
+                    {
+                        "internalType": "bytes32",
+                        "name": "transactionsHash",
+                        "type": "bytes32"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "submittedAt",
+                        "type": "uint256"
+                    }
+                ],
+                "internalType": "struct BlockLib.BlockHeader",
+                "name": "header",
+                "type": "tuple"
+            }],
+            "name": "confirmBlock",
+            "outputs": [],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [{
+                    "internalType": "uint32",
+                    "name": "accountIndex",
+                    "type": "uint32"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "value",
+                    "type": "uint256"
+                }
+            ],
+            "name": "deposit",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+        },
+        {
+            "inputs": [{
+                "internalType": "uint32",
+                "name": "index",
+                "type": "uint32"
+            }],
+            "name": "getAccount",
+            "outputs": [{
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [{
+                "internalType": "address",
+                "name": "addr_",
+                "type": "address"
+            }],
+            "name": "getAccountIndex",
+            "outputs": [{
+                "internalType": "uint32",
+                "name": "",
+                "type": "uint32"
+            }],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "getBlockCount",
+            "outputs": [{
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [{
+                "internalType": "uint256",
+                "name": "blockNumber",
+                "type": "uint256"
+            }],
+            "name": "getBlockHash",
+            "outputs": [{
+                "internalType": "bytes32",
+                "name": "",
+                "type": "bytes32"
+            }],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "getConfirmedBlockCount",
+            "outputs": [{
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [{
+                    "internalType": "uint256",
+                    "name": "start",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "max",
+                    "type": "uint256"
+                }
+            ],
+            "name": "getHardTransactionsFrom",
+            "outputs": [{
+                "internalType": "bytes[]",
+                "name": "_hardTransactions",
+                "type": "bytes[]"
+            }],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "owner",
+            "outputs": [{
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [{
+                "internalType": "address",
+                "name": "addr_",
+                "type": "address"
+            }],
+            "name": "register",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "renounceOwnership",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [{
+                    "components": [{
+                            "internalType": "uint16",
+                            "name": "version",
+                            "type": "uint16"
+                        },
+                        {
+                            "internalType": "uint32",
+                            "name": "blockNumber",
+                            "type": "uint32"
+                        },
+                        {
+                            "internalType": "uint32",
+                            "name": "stateSize",
+                            "type": "uint32"
+                        },
+                        {
+                            "internalType": "bytes32",
+                            "name": "stateRoot",
+                            "type": "bytes32"
+                        },
+                        {
+                            "internalType": "uint40",
+                            "name": "hardTransactionsCount",
+                            "type": "uint40"
+                        },
+                        {
+                            "internalType": "bytes32",
+                            "name": "transactionsRoot",
+                            "type": "bytes32"
+                        }
+                    ],
+                    "internalType": "struct BlockLib.HeaderInput",
+                    "name": "header",
+                    "type": "tuple"
+                },
+                {
+                    "internalType": "bytes",
+                    "name": "transactionsData",
+                    "type": "bytes"
+                }
+            ],
+            "name": "submitBlock",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "tokenContract",
+            "outputs": [{
+                "internalType": "contract IERC20",
+                "name": "",
+                "type": "address"
+            }],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "tokenDecimals",
+            "outputs": [{
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [{
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+            }],
+            "name": "transferOwnership",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "version",
+            "outputs": [{
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }],
+            "stateMutability": "view",
+            "type": "function"
+        }
+    ]
+}
