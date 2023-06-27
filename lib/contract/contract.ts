@@ -3,7 +3,7 @@ import capyABI from "./Capy.json";
 
 export const GetCapyContract = (signer: ethers.Signer) => {
   const contractReader = new ethers.Contract(
-    "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+    "0x49149a233de6E4cD6835971506F47EE5862289c1",
     capyABI.abi,
     signer
   );

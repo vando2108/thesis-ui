@@ -7,15 +7,17 @@ export interface UserState {
   tokenAAmount: string;
   tokenBAmount: string;
   signer: ethers.Signer | undefined;
+  nonce: number;
 
-  updateBalance: (amountA: string, amountB: string) => void;
+  updateInfo: (amountA: string, amountB: string, nonce: number) => void;
   updateUserId: (userId: number) => void;
   updateState: (
     userId: number,
     signer: ethers.Signer | undefined,
     address: string,
     tokenAAmount: string,
-    tokenBAmount: string
+    tokenBAmount: string,
+    nonce: number
   ) => void;
 }
 
@@ -25,11 +27,13 @@ export const useUserStore = create<UserState>()((set) => ({
   userId: 0,
   address: undefined,
   signer: undefined,
+  nonce: 0,
 
-  updateBalance: (amountA: string, amountB: string) => {
+  updateInfo: (amountA: string, amountB: string, nonce: number) => {
     set(() => ({
       tokenAAmount: amountA,
       tokenBAmount: amountB,
+      nonce,
     }));
   },
 
@@ -40,7 +44,8 @@ export const useUserStore = create<UserState>()((set) => ({
     signer: ethers.Signer | undefined,
     address: string,
     tokenAAmount: string,
-    tokenBAmount: string
+    tokenBAmount: string,
+    nonce: number
   ) =>
     set(() => ({
       userId,
@@ -48,5 +53,6 @@ export const useUserStore = create<UserState>()((set) => ({
       tokenAAmount,
       tokenBAmount,
       signer,
+      nonce,
     })),
 }));

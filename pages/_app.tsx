@@ -8,7 +8,9 @@ export default function App({ Component, pageProps }: AppProps) {
       <ThirdwebProvider
         activeChain={{
           chainId: 31337,
-          rpc: ["http://103.179.188.226:8545"],
+          rpc: [
+            "https://rpc.vnet.tenderly.co/devnet/my-first-devnet/76d4fead-dd10-4738-beb0-6018778674fb",
+          ],
           nativeCurrency: {
             decimals: 18,
             name: "BNB",

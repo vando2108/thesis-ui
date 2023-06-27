@@ -40,6 +40,7 @@ const SwapBox: FC<SwapBoxProps> = () => {
   };
 
   const SendTx = async () => {
+    console.log(userState.nonce);
     const transaction = new Transaction(
       userState.userId,
       poolState.isBuy,

@@ -4,7 +4,7 @@ import { ethers } from "ethers";
 export class Operator {
   static host = "http://103.179.188.226:8000/";
 
-  public static async GetUserBalance(userId: number) {
+  public static async GetUserInfo(userId: number) {
     const response = await axios.get(
       `https://api.capyex.space/api/account/${userId}`
     );
@@ -14,6 +14,7 @@ export class Operator {
         return [
           ethers.utils.formatEther(data.tokenBalance),
           ethers.utils.formatEther(data.nativeBalance),
+          data.nonce,
         ];
       }
     }

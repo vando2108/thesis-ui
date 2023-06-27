@@ -8,7 +8,7 @@ const tokenA = new Token(
   "CAPY",
   "CAPY",
   CAPYlogo,
-  "0xB602278e346741b26B71d8ADfACa08D07977Ca46"
+  "0x687bB6c57915aa2529EfC7D2a26668855e022fAE"
 );
 const tokenB = new Token("Ethereum", "ETH", ETHlogo, NATIVE_TOKEN_ADDRESS);
 

@@ -22,7 +22,7 @@ export default function Home() {
       GetAccountIndex(contract)
         .then((result) => {
           if (result != undefined) {
-            userState.updateState(result, signer, address!, "", "");
+            userState.updateState(result, signer, address!, "", "", 0);
           }
         })
         .catch((error) => {
@@ -34,17 +34,20 @@ export default function Home() {
   useEffect(() => {
     const interval = setInterval(async () => {
       if (userState.userId > 0) {
-        const amount = await Operator.GetUserBalance(userState.userId);
+        const info = await Operator.GetUserInfo(userState.userId).catch(
+          (error) => console.error(error)
+        );
 
-        if (amount != undefined) {
+        if (info != undefined) {
           if (
-            userState.tokenAAmount != amount[0] ||
-            userState.tokenBAmount != amount[1]
+            userState.tokenAAmount != info[0] ||
+            userState.tokenBAmount != info[1] ||
+            userState.nonce != info[2]
           ) {
-            userState.updateBalance(amount[0], amount[1]);
+            userState.updateInfo(info[0], info[1], info[3]);
           }
         } else {
-          userState.updateBalance("...", "...");
+          userState.updateInfo("...", "...", 0);
         }
       }
     }, 3000);
